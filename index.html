@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <!-- Import all needed scripts here -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script> 
+    <script src="https://unpkg.com/aframe-supercraft-loader@1.1.3/dist/aframe-supercraft-loader.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+      </a-assets>
+      <!-- Creating the camera -->
+      <a-entity id="rig" position="0 1.6 0">
+        <a-entity id="camera" camera look-controls wasd-controls="acceleration:100"></a-entity>
+      </a-entity>
+      <!-- Creating the scene light -->
+      <a-entity light="type: hemisphere; color: #33C; groundColor: #3C3; intensity: 2"></a-entity>
 
-<head>
-	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-	<script src="https://unpkg.com/aframe-supercraft-loader@1.1.3/dist/aframe-supercraft-loader.js"></script>
-</head>
+      <!-- Create a parent entity for Earth that moves with the camera -->
+      <a-entity id="earthParent" position="0 0 -5" rotation="0 0 0">
+        <!-- Creating and texturing EARTH -->
+        <a-entity id="Earth" rotation="0 0 0" animation__orbit="property: rotation; to: 0 360 0; loop: true; dur: 60000; easing: linear" 
+                  animation__self="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
+          <a-sphere position="0 1.25 0" radius="1.25" src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/earth_atmos_tex.jpg" radius="2" 
+                    segments-height="84" vent-set__enter="_event: mouseenter; _target: #earthText; visible: true"
+                    event-set__leave="_event: mouseleave; _target: #earthText; visible: false"
+                    change-code-hover="">
+          </a-sphere>
+        </a-entity>
+      </a-entity>
 
-<body>
-	<a-scene>
-		<a-assets>
-			<img id="earth-texture"
-				src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/earth_atmos_tex.jpg">
-		</a-assets>
-		<a-entity id="rig" position="0 1.6 0">
-			<a-entity id="camera" camera look-controls wasd-controls="acceleration:100"></a-entity>
-		</a-entity>
-		<a-entity light="type: hemisphere; color: #33C; groundColor: #3C3; intensity: 2"></a-entity>
-
-		<a-entity id="Earth" rotation="0 0 0">
-			<a-sphere position="0 1.25 -5" radius="1.25" material="src:#earth-texture" segments-height="84">
-				<a-animation attribute="rotation" axis="y" to="0 360 0" loop="true" dur="60000"></a-animation>
-				<a-animation attribute="rotation" axis="x" to="0 360 0" loop="true" dur="10000"></a-animation>
-			</a-sphere>
-		</a-entity>
-
-		<a-sky
-			src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/Space_1567215018748-ESA_Gaia_DR2_AllSky_Brightness_Colour_Cartesian_2000x1000.png"></a-sky>
-	</a-scene>
-</body>
-
+      <!-- Insert skybox -->
+      <a-sky src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/Space_1567215018748-ESA_Gaia_DR2_AllSky_Brightness_Colour_Cartesian_2000x1000.png"></a-sky>
+    </a-scene>
+  </body>
 </html>
