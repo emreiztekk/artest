@@ -12,7 +12,7 @@
 
 <body>
   <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
-      <a-sphere radius="1.25"
+      <a-sphere position="0 1.25 -2" radius="1.25" gps-entity-place="latitude:38.42701626517486; longitude:27.13730661130314;"
         src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/earth_atmos_tex.jpg"
         radius="2" segments-height="84" vent-set__enter="_event: mouseenter; _target: #earthText; visible: true"
         event-set__leave="_event: mouseleave; _target: #earthText; visible: false" change-code-hover="" look-at="[gps-camera]"
