@@ -12,14 +12,14 @@
 
 <body>
   <a-scene vr-mode-ui="enabled: false" arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
-      <a-sphere position="0 1.25 -2" radius="1.25"
+      <a-sphere radius="1.25"
         src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/earth_atmos_tex.jpg"
         radius="2" segments-height="84" vent-set__enter="_event: mouseenter; _target: #earthText; visible: true"
         event-set__leave="_event: mouseleave; _target: #earthText; visible: false" change-code-hover="" look-at="[gps-camera]"
         animation="property: rotation; to: 0 360 0; loop: true; dur: 60000; easing: linear">
       </a-sphere>
       <a-camera gps-camera rotation-reader></a-camera>
-      <a-sky src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/Space_1567215018748-ESA_Gaia_DR2_AllSky_Brightness_Colour_Cartesian_2000x1000.png"></a-sky>
+      <!-- <a-sky src="https://raw.githubusercontent.com/Babatunde-Fatai/Babylon-Assets/main/textures/Space_1567215018748-ESA_Gaia_DR2_AllSky_Brightness_Colour_Cartesian_2000x1000.png"></a-sky> -->
       
   </a-scene>
 </body>
